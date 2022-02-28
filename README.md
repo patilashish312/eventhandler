@@ -18,9 +18,12 @@
 
 	1.Make sure HSQLDB is up & running locally with following command : 
 	  `../org/hsqldb/hsqldb/2.2.8/hsqldb-2.2.8.jar org.hsqldb.Server --database.0 file:data -dbname.0 testdb`
+	  
 	2. Go to project & start application with below command:
 	  `mvn clean install spring-boot:run`
+	  
 	3. Based on logger requirement we can change log to debug or info based on application property config.
+	
 	4. Once application is successfully executed, you can see entries being printed on console something like below:
 	
 		2022-02-28 11:42:18 [main] INFO  c.c.a.e.s.LogEventHandlerService - Displaying all saved entities
@@ -36,5 +39,10 @@
 	 2. IF there is single event & no associate event present, then that is being ignored.
 	 3. For time-being,each time code executes, file table got created.
 	 4. Currently code assumes input is well formed json & don't have nulls for `id`, `timestamp`.
+	 5. Currently code assumes that every event has _only_ 2 entries in logfile.txt i.e. if there are 3 entries then one of entry will get ignored; if 
+      	    there are 4 entries then execution failed with constraint violation error because here we are trying to save another event with same id twice.
+            Error observed in this case is : 
+	    `2022-02-28 12:12:42 [ForkJoinPool.commonPool-worker-3] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: -104, SQLState: 23505
+	     2022-02-28 12:12:42 [ForkJoinPool.commonPool-worker-3] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - integrity constraint violation: unique constraint or index 			violation; SYS_PK_10533 table: DBEVENT`
 
 
