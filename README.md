@@ -31,7 +31,10 @@
 		2022-02-28 11:42:19 [main] INFO  c.c.a.e.s.LogEventHandlerService - DBEvent(id=scsmbstgrb, duration=3,type=null, 	host=null, alert=false)
 		2022-02-28 11:42:19 [main] INFO  c.c.a.e.s.LogEventHandlerService - DBEvent(id=scsmbstgrc, duration=8,type=null, 	host=null, alert=true)
 		2022-02-28 11:42:19 [main] INFO  c.c.a.e.s.LogEventHandlerService - DBEvent(id=scsmbstgrd, duration=1,type=null, 	host=null, alert=false)
-	
+		
+	5. Input file is placed under `src/main/resources/logfile.txt`, if we need to change input file, simply replace file with same name & execute
+	   command mentioned under point 2.
+        	
 
 - Notes:-
 	
